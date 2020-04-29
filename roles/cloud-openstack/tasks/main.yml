@@ -29,11 +29,11 @@
     - { proto: udp, port_min: "{{ wireguard_port }}", port_max: "{{ wireguard_port }}", range: 0.0.0.0/0 }
 
 - name: Gather facts about flavors
-  os_flavor_facts:
+  os_flavor_info:
     ram: "{{ cloud_providers.openstack.flavor_ram }}"
 
 - name: Gather facts about images
-  os_image_facts:
+  os_image_info:
 
 - name: Set image as a fact
   set_fact:
@@ -44,7 +44,7 @@
     - item.status == "active"
 
 - name: Gather facts about public networks
-  os_networks_facts:
+  os_networks_info:
 
 - name: Set the network as a fact
   set_fact:
